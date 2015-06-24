@@ -9,14 +9,24 @@
 class Wc_Post_Notice {
 
     public function initialize() {
-        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts'));
     }
 
-    public function enqueue_scripts() {
+    public function enqueue_styles() {
         wp_enqueue_style(
             'tuts-post-notice-admin',
             plugins_url( 'wc-PostNotice/assets/css/admin.css'),
             array(),
+            '0.1.0'
+        );
+    }
+
+    public function enqueue_scripts() {
+        wp_enqueue_script(
+            'tuts-post-notice-admin',
+            plugins_url( 'wc-PostNotice/assets/js/admin.js'),
+            array( 'jquery' ),
             '0.1.0'
         );
     }
