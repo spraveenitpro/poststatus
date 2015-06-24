@@ -20,3 +20,10 @@ if ( ! defined( 'WPINC' ) ) {
 //Include the class file
 
 require_once( plugin_dir_path( __FILE__ ) . 'class-wc-Post-notice.php' );
+
+function tutsplus_post_notice_start() {
+
+    $post_notice = new Wc_Post_Notice();
+    $post_notice->initialize();
+}
+tutsplus_post_notice_start();
